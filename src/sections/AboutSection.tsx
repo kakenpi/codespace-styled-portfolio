@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Volume2, MapPin, Mail, Copy, Check, Download, User, Code, Briefcase,Zap , Award } from 'lucide-react';
-import { personalInfo } from '../data/portfolio';
+import { currentWorkingOn, personalInfo } from '../data/portfolio';
 import { trackContactClick, trackResumeDownload } from '../utils/analytics';
 
 interface AboutSectionProps {
@@ -247,12 +247,20 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 Currently working on
               </h3>
               <p id="about-current-focus-text" className="text-[var(--vscode-text-primary)] text-left leading-relaxed mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-base">
-                 <span id="about-experience-highlight" className="font-bold text-[var(--vscode-text-primary)]">Task Management App :</span> Short Description
+                <span id="about-experience-highlight" className="font-bold text-[var(--vscode-text-primary)]">
+                  {currentWorkingOn.title} :
+                </span>{" "}
+                {currentWorkingOn.description}
               </p>
               <div id="about-current-focus-tags" className="flex flex-wrap gap-1 sm:gap-2">
-                <span id="about-tag-react" className="bg-[var(--vscode-bg-tertiary)] text-[var(--vscode-text-primary)] text-xs font-medium px-2 py-1 sm:px-3 sm:py-1.5 rounded-full">ReactJS</span>
-                <span id="about-tag-javascript" className="bg-[var(--vscode-bg-tertiary)] text-[var(--vscode-text-primary)] text-xs font-medium px-2 py-1 sm:px-3 sm:py-1.5 rounded-full">Javascript</span>
-                
+                {currentWorkingOn.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="bg-[var(--vscode-bg-tertiary)] text-[var(--vscode-text-primary)] text-xs font-medium px-2 py-1 sm:px-3 sm:py-1.5 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </section>

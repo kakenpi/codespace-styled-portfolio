@@ -69,6 +69,12 @@ export interface Certs {
   gpa?: string;
 }
 
+export interface CurrentWorkingOn {
+  title: string;
+  description: string;
+  tags: string[];
+}
+
 export const certificates: Certs[] = [
 {
   degree:"Certificate of Appreciation",
@@ -375,6 +381,12 @@ export const skills: Skill[] = [
 
 export const analytics = {
   gtagId: "G-XXXXXXXXXX" // Replace with your actual Google Analytics ID
+};
+
+export const currentWorkingOn: CurrentWorkingOn = {
+  title: "Sontra Retreat website",
+  description: "Sontra Retreat website is a landing page for a restaurant located in Da Nang, Viet Nam.",
+  tags: ["WordPress", "Elementor", "Custom CSS", "Custom JavaScript"]
 };
 
 

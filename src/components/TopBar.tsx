@@ -1,18 +1,22 @@
-  import React from 'react';
-import { Server, Sun, Moon } from 'lucide-react';
+import React from 'react';
+import { Server, Sun, Moon, Palette } from 'lucide-react';
 
 interface TopBarProps {
-    id?: string; // Add this line
+  id?: string;
   isDarkTheme: boolean;
-  setIsDarkTheme: (isDark: boolean) => void;
-   onServerClick?: () => void;
- 
+  onToggleDarkLight: () => void;
+  selectedTheme: string;
+  onThemeChange: (themeId: string) => void;
+  themes: { id: string; label: string }[];
+  onServerClick?: () => void;
 }
 
 export const TopBar: React.FC<TopBarProps> = ({
-  
   isDarkTheme,
-  setIsDarkTheme,
+  onToggleDarkLight,
+  selectedTheme,
+  onThemeChange,
+  themes,
   onServerClick,
 }) => {
   //const [isServerPulsing, setIsServerPulsing] = React.useState(false);
@@ -81,13 +85,28 @@ export const TopBar: React.FC<TopBarProps> = ({
       
       </div>
 
-      {/* Right Section - Accent Selector and Theme Toggle */}
+      {/* Right Section - Theme Selector and Theme Toggle */}
       <div id="top-bar-right-section" className="flex items-center gap-2">
-        
+        <div className="hidden sm:flex items-center gap-1 px-2 py-1 rounded border border-vscode bg-vscode-tertiary">
+          <Palette size={13} className="text-vscode-secondary" />
+          <select
+            id="top-bar-theme-select"
+            value={selectedTheme}
+            onChange={(e) => onThemeChange(e.target.value)}
+            className="bg-transparent text-vscode-secondary text-xs outline-none cursor-pointer"
+            title="Choose VS Code theme"
+          >
+            {themes.map((theme) => (
+              <option key={theme.id} value={theme.id} className="bg-vscode-secondary text-vscode-primary">
+                {theme.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <button
           id="top-bar-theme-toggle"
-          onClick={() => setIsDarkTheme(!isDarkTheme)}
+          onClick={onToggleDarkLight}
           className="p-1.5 rounded transition-vscode text-vscode-secondary hover:text-vscode-accent hover:bg-vscode-tertiary"
           title={isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'}
         >

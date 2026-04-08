@@ -14,7 +14,40 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({ color }) => {
 
   const iframeRef = React.useRef<HTMLIFrameElement>(null);
 
-  const resumeUrl = `${import.meta.env.BASE_URL}assets/${personalInfo.resume}`;
+  const resumeFile = personalInfo.resume ?? "CV.pdf";
+  const resumeUrl = `${import.meta.env.BASE_URL}assets/${resumeFile}`;
+  const [viewerUrl, setViewerUrl] = React.useState(`${resumeUrl}#toolbar=1&navpanes=0&scrollbar=1&view=FitH`);
+
+  // Use a blob URL for inline preview to avoid forced download behavior in some hosts/browsers.
+  React.useEffect(() => {
+    let revokedUrl: string | null = null;
+    let isCancelled = false;
+
+    const loadPdfForPreview = async () => {
+      try {
+        const response = await fetch(resumeUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error(`Failed to load PDF: ${response.status}`);
+
+        const blob = await response.blob();
+        revokedUrl = URL.createObjectURL(blob);
+
+        if (!isCancelled) {
+          setViewerUrl(`${revokedUrl}#toolbar=1&navpanes=0&scrollbar=1&view=FitH`);
+        }
+      } catch {
+        if (!isCancelled) {
+          setViewerUrl(`${resumeUrl}#toolbar=1&navpanes=0&scrollbar=1&view=FitH`);
+        }
+      }
+    };
+
+    loadPdfForPreview();
+
+    return () => {
+      isCancelled = true;
+      if (revokedUrl) URL.revokeObjectURL(revokedUrl);
+    };
+  }, [resumeUrl]);
 
 
   
@@ -24,7 +57,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({ color }) => {
     } catch {}
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = personalInfo.resume;
+    link.download = resumeFile;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -156,7 +189,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({ color }) => {
 
         {/* Content Area */}
         <div className="w-full h-full flex flex-col mt-2 pt-2 bg-vscode-tertiary ">
-          <iframe src={`${resumeUrl}#toolbar=1&navpanes=0&scrollbar=1&view=FitH`}
+          <iframe src={viewerUrl}
                         ref={iframeRef}
  title="Resume PDF Viewer"
             id="resume-section-iframe"

@@ -81,8 +81,9 @@
   --vscode-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Dark Theme Overrides */
-.dark {
+/* Default Dark+ Theme Overrides */
+.dark,
+[data-theme="vscode-dark"] {
   --vscode-bg-primary: #1e1e1e;
   --vscode-bg-secondary: #2d2d30;
   --vscode-bg-tertiary: #333333;
@@ -157,6 +158,93 @@
   
   --vscode-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
 
+}
+
+/* Explicit Light Theme (inherits root variables) */
+[data-theme="vscode-light"] {
+  --vscode-bg-primary: #ffffff;
+  --vscode-bg-secondary: #f3f3f3;
+  --vscode-bg-tertiary: #e8e8e8;
+  --vscode-bg-quaternary: #f8f8f8;
+  --vscode-bg-panel: #f0f0f0;
+  --vscode-text-primary: #333333;
+  --vscode-text-secondary: #545454;
+  --vscode-text-tertiary: #666666;
+  --vscode-text-muted: #999999;
+  --vscode-border: #d4d4d4;
+  --vscode-accent: #C3504B;
+  --vscode-default-accent:#C3504B;
+  --vscode-accent-hover: #9A413C;
+  --vscode-default-accent-hover: #9A413C;
+}
+
+/* Popular VS Code-like themes */
+[data-theme="dracula"] {
+  --vscode-bg-primary: #282a36;
+  --vscode-bg-secondary: #303341;
+  --vscode-bg-tertiary: #3a3d4d;
+  --vscode-bg-quaternary: #242632;
+  --vscode-bg-panel: #313442;
+  --vscode-text-primary: #f8f8f2;
+  --vscode-text-secondary: #d7d7cf;
+  --vscode-text-tertiary: #b8b8a8;
+  --vscode-text-muted: #8b8fa3;
+  --vscode-border: #44475a;
+  --vscode-accent: #bd93f9;
+  --vscode-default-accent: #bd93f9;
+  --vscode-accent-hover: #a678e6;
+  --vscode-default-accent-hover: #a678e6;
+}
+
+[data-theme="nord"] {
+  --vscode-bg-primary: #2e3440;
+  --vscode-bg-secondary: #3b4252;
+  --vscode-bg-tertiary: #434c5e;
+  --vscode-bg-quaternary: #2b303b;
+  --vscode-bg-panel: #3f4658;
+  --vscode-text-primary: #eceff4;
+  --vscode-text-secondary: #d8dee9;
+  --vscode-text-tertiary: #c0c8d4;
+  --vscode-text-muted: #9aa5b6;
+  --vscode-border: #4c566a;
+  --vscode-accent: #88c0d0;
+  --vscode-default-accent: #88c0d0;
+  --vscode-accent-hover: #73adbd;
+  --vscode-default-accent-hover: #73adbd;
+}
+
+[data-theme="one-dark-pro"] {
+  --vscode-bg-primary: #282c34;
+  --vscode-bg-secondary: #2f343f;
+  --vscode-bg-tertiary: #3a404b;
+  --vscode-bg-quaternary: #252932;
+  --vscode-bg-panel: #313741;
+  --vscode-text-primary: #abb2bf;
+  --vscode-text-secondary: #9ea5b1;
+  --vscode-text-tertiary: #7f8794;
+  --vscode-text-muted: #69707a;
+  --vscode-border: #3e4451;
+  --vscode-accent: #61afef;
+  --vscode-default-accent: #61afef;
+  --vscode-accent-hover: #5297ce;
+  --vscode-default-accent-hover: #5297ce;
+}
+
+[data-theme="solarized-dark"] {
+  --vscode-bg-primary: #002b36;
+  --vscode-bg-secondary: #073642;
+  --vscode-bg-tertiary: #0a4654;
+  --vscode-bg-quaternary: #00242d;
+  --vscode-bg-panel: #0a3b46;
+  --vscode-text-primary: #93a1a1;
+  --vscode-text-secondary: #839496;
+  --vscode-text-tertiary: #748b8d;
+  --vscode-text-muted: #657b83;
+  --vscode-border: #224b56;
+  --vscode-accent: #b58900;
+  --vscode-default-accent: #b58900;
+  --vscode-accent-hover: #9f7600;
+  --vscode-default-accent-hover: #9f7600;
 }
 
 /* === Utility Classes === */

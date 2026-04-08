@@ -53,6 +53,21 @@ interface FileStructureItem {
   children?: FileStructureItem[];
 }
 
+type ThemeOption = {
+  id: string;
+  label: string;
+  isDark: boolean;
+};
+
+const THEME_OPTIONS: ThemeOption[] = [
+  { id: 'vscode-dark', label: 'Default Dark+', isDark: true },
+  { id: 'vscode-light', label: 'Default Light+', isDark: false },
+  { id: 'dracula', label: 'Dracula', isDark: true },
+  { id: 'nord', label: 'Nord', isDark: true },
+  { id: 'one-dark-pro', label: 'One Dark Pro', isDark: true },
+  { id: 'solarized-dark', label: 'Solarized Dark', isDark: true },
+];
+
 // Debug Mode Configuration
 const getURLParams = () => new URLSearchParams(window.location.search);
 const DEBUG_MODE = getURLParams().get('devMode') === 'true';
@@ -108,7 +123,7 @@ function App() {
 
   // State declarations
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
+  const [selectedTheme, setSelectedTheme] = useState<string>('vscode-dark');
   const [activeTab, setActiveTab] = useState<string>('');
   const [openTabs, setOpenTabs] = useState<string[]>([]);
   const [isTerminalOpen, setIsTerminalOpen] = useState<boolean>(false);
@@ -276,11 +291,13 @@ function App() {
     setActiveTab(tab);
   }, [setActiveTab, activeTab]);
 
+  const isDarkTheme = THEME_OPTIONS.find((theme) => theme.id === selectedTheme)?.isDark ?? true;
+
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', selectedTheme);
     document.documentElement.className = isDarkTheme ? 'dark' : '';
-    debugLog('theme', `Theme changed to: ${isDarkTheme ? 'dark' : 'light'}`);
-  }, [isDarkTheme]);
+    debugLog('theme', `Theme changed to: ${selectedTheme}`);
+  }, [selectedTheme, isDarkTheme]);
 
   useEffect(() => {
     const handleClickOutside = (event: Event) => {
@@ -678,7 +695,10 @@ function App() {
       <TopBar 
         id="app-top-bar" 
         isDarkTheme={isDarkTheme} 
-        setIsDarkTheme={setIsDarkTheme}   
+        onToggleDarkLight={() => setSelectedTheme(isDarkTheme ? 'vscode-light' : 'vscode-dark')}
+        selectedTheme={selectedTheme}
+        onThemeChange={setSelectedTheme}
+        themes={THEME_OPTIONS.map(({ id, label }) => ({ id, label }))}
         onServerClick={handleServerClick}
       />
       
@@ -693,7 +713,7 @@ function App() {
           isTerminalMinimized={isTerminalMinimized}
           setIsTerminalMinimized={setIsTerminalMinimized}
           isDarkTheme={isDarkTheme}
-          setIsDarkTheme={setIsDarkTheme}
+          setIsDarkTheme={(isDark) => setSelectedTheme(isDark ? 'vscode-dark' : 'vscode-light')}
 /*          setShowFloatingForm={setShowFloatingForm}
 */          activeNavItem={leftNavActiveItem}
           setActiveNavItem={setLeftNavActiveItem}
