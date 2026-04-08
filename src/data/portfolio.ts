@@ -5,7 +5,11 @@ export interface PersonalInfo {
   phone: string;
   location: string;
   profileImage: string;
-  bio: string;
+  totalExperience?: string;
+  resume?: string;
+  bio1?: string;
+  bio2?: string;
+  bio?: string;
   tagline: string;
 }
 
@@ -18,6 +22,7 @@ export interface SocialLinks {
 
 
 export interface Experience {
+  title?: string;
   company: string;
   location: string;
   logo: string;
@@ -48,8 +53,12 @@ export interface Project {
 }
 
 export interface Skill {
+  name?: string;
+  score?: number;
+  badgeLight?: string;
+  badgeDark?: string;
   category: string;
-  items: string[];
+  items?: string[];
 }
 
 export interface Certs {
@@ -62,10 +71,10 @@ export interface Certs {
 
 export const certificates: Certs[] = [
 {
-  degree:"Cloud Practitioner.",
-  institution:"AWS",
-  credentials:"https://hudsoncourses.com/wp-content/uploads/2020/04/AWS-Certified-Cloud-Practitioner-CERTIFICATE-EXAMPLE.png",
-  period:"May 2023"
+  degree:"Certificate of Appreciation",
+  institution:"Intel Vietnam",
+  credentials:"Vision-Guard: Optimizing AI models to speed up training process",
+  period:"2025"
 
 }
 ];
@@ -73,367 +82,295 @@ export const certificates: Certs[] = [
 
 
 export const personalInfo: PersonalInfo = {
-  name: "YOUR NAME",
-  title: "Full Stack Developer & UI/UX Designer",
-  email: "youremailid@test.com",
-  phone: "+1 (555) 123-4567",
-  location: "San Francisco, CA",
-  profileImage: "ProfilePic.png",
-  totalExperience: "6+",
-  resume:"Sample-Resume-Template.pdf",
-  bio1: "I'm a passionate full-stack developer with 5+ years of experience building scalable web applications. I specialize in React, Node.js, and modern cloud technologies, always striving to create intuitive user experiences backed by robust, maintainable code.",
-  bio2: "I also hold a certificate in..",
-  tagline: "Building the future, one line of code at a time"
+  name: "Dinh Xuan Minh",
+  title: "Final-year Software Engineering Student | Full-stack Developer",
+  email: "minhdinh281.work@gmail.com",
+  phone: "+84 704 510 688",
+  location: "Ho Chi Minh, Viet Nam",
+  profileImage: "ProfileImage.PNG",
+  totalExperience: "Intern",
+  resume:"CV.pdf",
+  bio1: "Final-year Software Engineering student at RMIT University with hands-on experience in full-stack web development, mobile apps, and software testing.",
+  bio2: "Built team projects using React, Spring Boot, MongoDB, Redis, Kafka, Docker, and Git, with practical QA/testing experience using Postman, Katalon, JUnit 5, Jira, and Swagger.",
+  tagline: "Building practical software with strong engineering and QA foundations"
 };
 
 export const socialLinks: SocialLinks = {
-  github: "https://github.com/yourgitlink",
-  linkedin: "https://linkedin.com/yourprofilelinkedin",
+  github: "https://github.com/kakenpi",
+  linkedin: "https://linkedin.com/in/minh-dinh-375823304/",
   
   
 };
 
 export const experiences: Experience[] = [{
-    title: "Senior Full Stack Developer",
-    company: "TechCorp Solutions",
-    logo: "https://leadingage.org/wp-content/uploads/2022/09/depiction-of-ideas-technology-1200x776-1.jpg",
-    link: "",
-    totalPeriod: "2020 - Present",
+    title: "University Project Team Member",
+    company: "RMIT University",
+    location: "Ho Chi Minh City, Viet Nam",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/RMIT_University_Logo.svg",
+    link: "https://www.rmit.edu.vn/",
+    totalPeriod: "2025 - 2026",
     roles: [{
-      title: "Senior Full Stack Developer",
-      period: "2022 - Present",
-      description: ["Built MVP from ground up, scaling to 100K+ users. Developed real-time features using WebSockets and implemented payment processing.",
-        "Architected and deployed a microservices-based e-commerce platform using React, Node.js, and GraphQL that processed $2.3M in transactions within the first quarter, while reducing page load times by 67%",
-        "Spearheaded the implementation of a CI/CD pipeline with GitHub Actions and Docker, cutting deployment time from 3 hours to 12 minutes and eliminating 94% of post-release bugs",
-        "Led a cross-functional team of 7 developers to integrate machine learning recommendations into the product catalog, resulting in a 28% increase in average order value and improved customer retention"
+      title: "Backend Developer - DEVision (Job Application Platform)",
+      period: "Nov 2025 - Jan 2026",
+      description: [
+        "Developed backend services using Spring Boot and MongoDB for a job application platform.",
+        "Designed system data model and C4 diagrams for modular monolith architecture.",
+        "Integrated Redis caching and Kafka asynchronous communication across subsystems.",
+        "Contributed to REST API development and Spring Boot security configuration.",
+        "Collaborated in a team of 5 using GitHub, Agile task division, and sprint reviews."
       ],
-      technologies: ["TypeScript", "JavaScript", "Django", "PostgreSQL", "AWS", "Docker"]
-    }, {
-      title: "Full Stack Developer",
-      period: "2020 - 2022",
-      description: ["Led development of microservices architecture serving 1M+ users. Implemented CI/CD pipelines and mentored junior developers.",
-        "Built and maintained RESTful APIs using Django and PostgreSQL that powered mobile and web applications for 50,000+ monthly active users",
-        "Refactored legacy JavaScript codebase to TypeScript, reducing bug reports by 31% and improving team velocity on feature development.",
-        "Designed and implemented automated test suites with Jest and Cypress, increasing code coverage from 43% to 87% within one quarter while documenting best practices for the engineering team"
-      ],
-      technologies: ["Vue.js", "Express.js", "MongoDB", "Stripe", "Redis"]
+      technologies: ["Java", "Spring Boot", "React", "MongoDB", "Redis", "Kafka", "Google OAuth"]
     }]
 
   },
   {
-    title: "Frontend Developer",
-    company: "Digital Agency",
-    totalPeriod: "2019 - 2020",
-    link: "",
-    logo: "https://codedesign.org/storage/app/media/uploaded-files/digital%20marketing%20agency.png",
+    title: "Capstone Team Lead",
+    company: "RMIT University x Intel Vietnam",
+    location: "Ho Chi Minh City, Viet Nam",
+    totalPeriod: "2025",
+    link: "https://rmitvn-showcase.com/uiia",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/RMIT_University_Logo.svg",
     roles: [{
-      title: "Full Stack Developer",
-      period: "2019 - 2020",
-      description: ["Created responsive web applications for various clients. Improved site performance by 40% through optimization techniques."],
-      technologies: ["React", "JavaScript", "SCSS", "Webpack", "Jest"]
+      title: "Vision-Guard - AI-based Die Defect Detection",
+      period: "Feb 2025 - Aug 2025",
+      description: [
+        "Led dataset generation and annotation for semiconductor die defect inspection.",
+        "Trained, tested, and evaluated multi-class computer vision models on Intel Geti.",
+        "Defined defect classes and labeling strategy for model quality and consistency.",
+        "Supported model integration using Intel Geti SDK for a web-based inspection system.",
+        "Collaborated with Intel supervisors and teammates to deliver a working prototype."
+      ],
+      technologies: ["Python", "React", "Intel Geti", "Computer Vision"]
     }]
 
   }
- ]
+]
 
 export const educationList: Education[] = [
   {
-    degree: "Bachelor of Science in Computer Science",
-    institution: "University of California, Berkeley",
-    period: "2015 - 2019",
-    description: "Focused on software engineering, algorithms, and data structures. Graduated Magna Cum Laude.",
-    gpa: "3.8/4.0"
-  },
-  {
-    degree: "Masters of Science in Computer Science",
-    institution: "University of California, Berkeley",
-    period: "2020 - 2022",
-    description: "Focused on software engineering, algorithms, and data structures. Graduated Magna Cum Laude.",
-    gpa: "3.8/4.0"
-  },
-  {
-    degree: "Full Stack Web Development Bootcamp",
-    institution: "General Assembly",
-    period: "2019",
-    description: "Intensive 12-week program covering modern web development technologies and best practices.",
+    degree: "Bachelor of Software Engineering (Honours)",
+    institution: "RMIT University",
+    period: "Expected 2027",
+    description: "Final-year Software Engineering student with focus on full-stack development, software testing, and system design."
   }
 ];
 
 export const projects: Project[] = [
   {
-    name: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "AWS"],
-    github: "https://github.com/fullstackdeveloper/ecommerce-platform",
-    demo: "https://ecommerce-demo.fullstackdeveloper.dev",
-    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400"
+    name: "DEVision - Job Application Web Platform",
+    description: "Team-built job application platform with backend services, modular architecture, and secure API integration.",
+    technologies: ["React", "Spring Boot", "MongoDB", "Redis", "Kafka", "Google OAuth", "Resend"],
+    github: "https://github.com/ISYS3461-2025C-SonTinh-DEVision/JobApplicant.git",
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400"
   },
   {
-    name: "Task Management App",
-    description: "Collaborative task management application with real-time updates, team collaboration, and project tracking.",
-    technologies: ["Vue.js", "Express.js", "MongoDB", "Socket.io"],
-    github: "https://github.com/fullstackdeveloper/task-manager",
-    demo: "https://tasks.fullstackdeveloper.dev",
-    image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400"
-  },
-  {
-    name: "Weather Dashboard",
-    description: "Beautiful weather dashboard with location-based forecasts, interactive maps, and weather alerts.",
-    technologies: ["React", "TypeScript", "OpenWeather API", "Mapbox"],
-    github: "https://github.com/fullstackdeveloper/weather-dashboard",
-    demo: "https://weather.fullstackdeveloper.dev",
-    image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=400"
+    name: "Vision-Guard - AI Die Defect Detection",
+    description: "Capstone project delivering an AI-assisted die defect inspection workflow from dataset preparation to model validation and integration.",
+    technologies: ["Python", "React", "Intel Geti", "Computer Vision"],
+    demo: "https://www.rmitvn-showcase.com/uiia",
+    image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=400"
   }
 ];
 
 export const skills: Skill[] = [
-
-  
-  { 
-    name: "JavaScript", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/javascript/F7DF1E?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/javascript/F7DF1E?viewbox=auto",
-    category: "Programming Languages" 
-  },
-{ 
-    name: "Node.js", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/nodedotjs/339933?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/nodedotjs/68CC44?viewbox=auto",
-    category: "Programming Languages" 
-  },
- { 
-    name: "Figma", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/figma/coral?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/figma/coral?viewbox=auto",
-    category: "Programming Languages" 
-  },
- { 
-    name: "ReactJS", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/react/61DAFB?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/react/61DAFB?viewbox=auto",
-    category: "Programming Languages" 
-  },
- 
-{ 
-    name: "Java", 
-    score: 7, 
-    badgeLight: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", 
+  // Languages
+  {
+    name: "Java",
+    score: 8,
+    badgeLight: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
     badgeDark: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-    category: "Programming Languages" 
+    category: "Languages"
   },
-  // Java Technologies
-  { 
-    name: "Spring Framework", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/spring/6DB33F?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/spring/68BC45?viewbox=auto",
-    category: "Java Technologies" 
+  {
+    name: "JavaScript",
+    score: 8,
+    badgeLight: "https://cdn.simpleicons.org/javascript/F7DF1E?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/javascript/F7DF1E?viewbox=auto",
+    category: "Languages"
   },
-  { 
-    name: "Spring Hibernate", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/hibernate/59666C?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/hibernate/BCAE79?viewbox=auto",
-    category: "Java Technologies" 
-  },
-  { 
-    name: "Spring Boot", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/springboot/6DB33F?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/springboot/68BC45?viewbox=auto",
-    category: "Java Technologies" 
-  },
-  { 
-    name: "Spring Security", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/springsecurity/6DB33F?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/springsecurity/68BC45?viewbox=auto",
-    category: "Java Technologies" 
-  },
-  { 
-    name: "Python", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/python/3776AB?viewbox=auto", 
+  {
+    name: "Python",
+    score: 5,
+    badgeLight: "https://cdn.simpleicons.org/python/3776AB?viewbox=auto",
     badgeDark: "https://cdn.simpleicons.org/python/4B8BBE?viewbox=auto",
-    category: "Programming Languages" 
+    category: "Languages"
   },
-  { 
-    name: "PHP", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/php/777BB4?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/php/8892BF?viewbox=auto",
-    category: "Programming Languages" 
+  {
+    name: "C",
+    score: 5,
+    badgeLight: "https://cdn.simpleicons.org/c/A8B9CC?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/c/A8B9CC?viewbox=auto",
+    category: "Languages"
   },
-  
 
-  // Databases
-  { 
-    name: "SQL", 
-    score: 7, 
-    badgeLight: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original-wordmark.svg", 
-    badgeDark: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original-wordmark.svg",
-    category: "Databases" 
+  // Frameworks
+  {
+    name: "Spring Boot",
+    score: 8,
+    badgeLight: "https://cdn.simpleicons.org/springboot/6DB33F?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/springboot/68BC45?viewbox=auto",
+    category: "Frameworks"
   },
-  { 
-    name: "PostgreSQL", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/postgresql/4169E1?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/postgresql/336791?viewbox=auto",
-    category: "Databases" 
+  {
+    name: "React",
+    score: 8,
+    badgeLight: "https://cdn.simpleicons.org/react/61DAFB?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/react/61DAFB?viewbox=auto",
+    category: "Frameworks"
   },
-  { 
-    name: "MySQL", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/mysql/4479A1?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/mysql/00758F?viewbox=auto",
-    category: "Databases" 
+  {
+    name: "Node.js",
+    score: 5,
+    badgeLight: "https://cdn.simpleicons.org/nodedotjs/339933?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/nodedotjs/68CC44?viewbox=auto",
+    category: "Frameworks"
   },
-  { 
-    name: "Elasticsearch", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/elasticsearch/005571?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/elasticsearch/FEC514?viewbox=auto",
-    category: "Databases" 
+  {
+    name: "Next.js",
+    score: 5,
+    badgeLight: "https://cdn.simpleicons.org/nextdotjs/000000?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/nextdotjs/FFFFFF?viewbox=auto",
+    category: "Frameworks"
   },
-  { 
-    name: "MongoDB", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/mongodb/47A248?viewbox=auto", 
+
+  // Databases & Messaging
+  {
+    name: "MongoDB",
+    score: 8,
+    badgeLight: "https://cdn.simpleicons.org/mongodb/47A248?viewbox=auto",
     badgeDark: "https://cdn.simpleicons.org/mongodb/4DB33D?viewbox=auto",
-    category: "Databases" 
+    category: "Databases & Messaging"
   },
-
-  // Middleware Technologies
-  { 
-    name: "Apache Kafka", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/apachekafka/000000?viewbox=auto", 
+  {
+    name: "PostgreSQL (Neon)",
+    score: 7,
+    badgeLight: "https://cdn.simpleicons.org/postgresql/4169E1?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/postgresql/336791?viewbox=auto",
+    category: "Databases & Messaging"
+  },
+  {
+    name: "Redis",
+    score: 7,
+    badgeLight: "https://cdn.simpleicons.org/redis/DC382D?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/redis/DC382D?viewbox=auto",
+    category: "Databases & Messaging"
+  },
+  {
+    name: "Kafka",
+    score: 7,
+    badgeLight: "https://cdn.simpleicons.org/apachekafka/000000?viewbox=auto",
     badgeDark: "https://cdn.simpleicons.org/apachekafka/FFFFFF?viewbox=auto",
-    category: "Middleware Technologies" 
-  },
-  { 
-    name: "Netflix Ribbon", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/netflix/E50914?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/netflix/E50914?viewbox=auto",
-    category: "Middleware Technologies" 
+    category: "Databases & Messaging"
   },
 
-  // CI/CD and Other Tools
-  { 
-    name: "GitHub", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/github/181717?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/github/FFFFFF?viewbox=auto",
-    category: "CI/CD and Other Tools" 
-  },
-  { 
-    name: "Docker", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/docker/2496ED?viewbox=auto", 
+  // Cloud & Deployment
+  {
+    name: "Docker",
+    score: 8,
+    badgeLight: "https://cdn.simpleicons.org/docker/2496ED?viewbox=auto",
     badgeDark: "https://cdn.simpleicons.org/docker/2496ED?viewbox=auto",
-    category: "CI/CD and Other Tools" 
+    category: "Cloud & Deployment"
   },
-  { 
-    name: "Kubernetes", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/kubernetes/326CE5?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/kubernetes/326CE5?viewbox=auto",
-    category: "CI/CD and Other Tools" 
+  {
+    name: "AWS Elastic Beanstalk",
+    score: 6,
+    badgeLight: "https://icon.icepanel.io/AWS/svg/Compute/Elastic-Beanstalk.svg",
+    badgeDark: "https://icon.icepanel.io/AWS/svg/Compute/Elastic-Beanstalk.svg",
+    category: "Cloud & Deployment"
   },
-  { 
-    name: "SPLUNK", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/splunk/000000?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/splunk/FFFFFF?viewbox=auto",
-    category: "CI/CD and Other Tools" 
+  {
+    name: "Amazon ECR",
+    score: 6,
+    badgeLight: "https://icon.icepanel.io/AWS/svg/Containers/Elastic-Container-Registry.svg",
+    badgeDark: "https://icon.icepanel.io/AWS/svg/Containers/Elastic-Container-Registry.svg",
+    category: "Cloud & Deployment"
   },
-  { 
-    name: "Dynatrace", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/dynatrace/1496FF?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/dynatrace/1496FF?viewbox=auto",
-    category: "CI/CD and Other Tools" 
+  {
+    name: "Cloudflare Pages",
+    score: 6,
+    badgeLight: "https://cdn.simpleicons.org/cloudflare/F38020?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/cloudflare/F38020?viewbox=auto",
+    category: "Cloud & Deployment"
   },
-  { 
-    name: "Grafana", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/grafana/F46800?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/grafana/F46800?viewbox=auto",
-    category: "CI/CD and Other Tools" 
-  },
-
-  // Cloud Technologies
-  { 
-    name: "AWS", 
-    score: 7, 
-    badgeLight: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-4.svg", 
-    badgeDark: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-7.svg",
-    category: "Cloud Technologies" 
-  },
-  { 
-    name: "AWS Lambda", 
-    score: 7, 
-    badgeLight: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Amazon_Lambda_architecture_logo.svg", 
-    badgeDark: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Amazon_Lambda_architecture_logo.svg",
-    category: "Cloud Technologies" 
-  },
-  { 
-    name: "AWS S3", 
-    score: 7, 
-    badgeLight: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg", 
-    badgeDark: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg",
-    category: "Cloud Technologies" 
-  },
-  { 
-    name: "GCP", 
-    score: 4, 
-    badgeLight: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original-wordmark.svg", 
-    badgeDark: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original-wordmark.svg",
-    category: "Cloud Technologies" 
+  {
+    name: "Cloudflare Tunnel",
+    score: 6,
+    badgeLight: "https://cdn.simpleicons.org/cloudflare/F38020?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/cloudflare/F38020?viewbox=auto",
+    category: "Cloud & Deployment"
   },
 
-  // AI & Machine Learning
-  { 
-    name: "TensorFlow", 
-    score: 4, 
-    badgeLight: "https://cdn.simpleicons.org/tensorflow/FF6F00?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/tensorflow/FF6F00?viewbox=auto",
-    category: "AI & Machine Learning" 
+  // Tools & Practices
+  {
+    name: "Git/GitHub",
+    score: 8,
+    badgeLight: "https://cdn.simpleicons.org/github/181717?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/github/FFFFFF?viewbox=auto",
+    category: "Tools & Practices"
   },
-  { 
-    name: "PyTorch", 
-    score: 4, 
-    badgeLight: "https://cdn.simpleicons.org/pytorch/EE4C2C?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/pytorch/EE4C2C?viewbox=auto",
-    category: "AI & Machine Learning" 
+  {
+    name: "Linux",
+    score: 6,
+    badgeLight: "https://cdn.simpleicons.org/linux/FCC624?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/linux/FCC624?viewbox=auto",
+    category: "Tools & Practices"
   },
-  { 
-    name: "Scikit-learn", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/scikitlearn/F7931E?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/scikitlearn/F7931E?viewbox=auto",
-    category: "AI & Machine Learning" 
+  {
+    name: "REST APIs",
+    score: 8,
+    badgeLight: "https://cdn.simpleicons.org/postman/FF6C37?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/postman/FF6C37?viewbox=auto",
+    category: "Tools & Practices"
   },
-  { 
-    name: "Pandas", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/pandas/150458?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/pandas/E70488?viewbox=auto",
-    category: "AI & Machine Learning" 
+  {
+    name: "Postman",
+    score: 7,
+    badgeLight: "https://cdn.simpleicons.org/postman/FF6C37?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/postman/FF6C37?viewbox=auto",
+    category: "Tools & Practices"
   },
-  { 
-    name: "NumPy", 
-    score: 7, 
-    badgeLight: "https://cdn.simpleicons.org/numpy/013243?viewbox=auto", 
-    badgeDark: "https://cdn.simpleicons.org/numpy/4DABCF?viewbox=auto",
-    category: "AI & Machine Learning" 
+  {
+    name: "Katalon",
+    score: 6,
+    badgeLight: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Katalon-logo-vector.svg/960px-Katalon-logo-vector.svg.png",
+    badgeDark: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Katalon-logo-vector.svg/960px-Katalon-logo-vector.svg.png",
+    category: "Tools & Practices"
+  },
+  {
+    name: "JUnit 5",
+    score: 6,
+    badgeLight: "https://cdn.simpleicons.org/junit5/25A162?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/junit5/25A162?viewbox=auto",
+    category: "Tools & Practices"
+  },
+  {
+    name: "Jira",
+    score: 7,
+    badgeLight: "https://cdn.simpleicons.org/jira/0052CC?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/jira/2684FF?viewbox=auto",
+    category: "Tools & Practices"
+  },
+  {
+    name: "Swagger",
+    score: 7,
+    badgeLight: "https://cdn.simpleicons.org/swagger/85EA2D?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/swagger/85EA2D?viewbox=auto",
+    category: "Tools & Practices"
+  },
+  {
+    name: "Figma",
+    score: 8,
+    badgeLight: "https://cdn.simpleicons.org/figma/F24E1E?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/figma/F24E1E?viewbox=auto",
+    category: "Tools & Practices"
+  },
+  {
+    name: "Technical Documentation",
+    score: 8,
+    badgeLight: "https://cdn.simpleicons.org/readthedocs/8CA1AF?viewbox=auto",
+    badgeDark: "https://cdn.simpleicons.org/readthedocs/8CA1AF?viewbox=auto",
+    category: "Tools & Practices"
   }
-  
 ]
 
 export const analytics = {

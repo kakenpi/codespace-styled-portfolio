@@ -15,7 +15,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   openTabs,
   setOpenTabs,
 }) => {
-  const profilePic = `${import.meta.env.BASE_URL}assets/${personalInfo.profileImage}?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop`
+  const profilePic = `${import.meta.env.BASE_URL}assets/${personalInfo.profileImage}`
     const resumeUrl = `${import.meta.env.BASE_URL}assets/${personalInfo.resume}`;
 
   const [emailCopied, setEmailCopied] = useState(false);
@@ -91,8 +91,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               <div id="about-profile-picture-placeholder" className="absolute inset-0 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-full " />
               <img
                 id="about-profile-picture"
-                alt="Bhakti Vora"
-                className="w-full h-full object-cover object-top rounded-full border-1.5 sm:border-1 border-[var(--vscode-bg-secondary)] shadow-xl transition-all duration-700 hover:scale-105 opacity-0 animate-fade-in"
+                alt={personalInfo.name}
+                className="w-full h-full object-cover object-center rounded-full border-1.5 sm:border-1 border-[var(--vscode-bg-secondary)] shadow-xl transition-all duration-700 hover:scale-[0.92] opacity-0 animate-fade-in"
+                style={{ transform: "scale(0.86)" }}
                 src={profilePic}
                 onLoad={(e) => {
                   const img = e.currentTarget;
